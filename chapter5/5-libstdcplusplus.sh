@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="gcc"
 export PKGVER="4.9.2"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -11,7 +13,7 @@ if [ -d $PKGNAME-$PKGVER ]; then
 	rm -rf $PKGNAME-$PKGVER
 fi
 if [ -d $PKGNAME-build ]; then
-	rm -rf $PKGNAME-build
+	as_root rm -rf $PKGNAME-build
 fi
 
 try_unpack $PKGNAME-$PKGVER
@@ -21,7 +23,7 @@ cd $PKGNAME-$PKGVER
 mkdir -pv ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-../$PKGNAME-$PKGVER/libstdc++-v3/configure \
+as_root ../$PKGNAME-$PKGVER/libstdc++-v3/configure \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \
@@ -29,15 +31,15 @@ cd ../$PKGNAME-build
     --disable-nls                   \
     --disable-libstdcxx-threads     \
     --disable-libstdcxx-pch         \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/$PKGVER
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.9.2
     
-make
+as_root make
 
-make install
+as_root make install
 
 cd ..
 
-rm -rf $PKGNAME-$PKGVER $PKGNAME-build
+as_root rm -rf $PKGNAME-$PKGVER $PKGNAME-build
 
 echo "$PKGNAME-$PKGVER: libstdc++"
 

@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="bzip2"
 export PKGVER="1.0.6"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -11,13 +13,13 @@ if [ -d $PKGNAME-$PKGVER ]; then
 	rm -rf $PKGNAME-$PKGVER
 fi
 
-try_unpack $PKGNAMe-$PKGVER
+try_unpack $PKGNAME-$PKGVER
 
 cd $PKGNAME-$PKGVER
 
 make
 
-make PREFIX=/tools install
+as_root make PREFIX=/tools install
 
 cd ..
 

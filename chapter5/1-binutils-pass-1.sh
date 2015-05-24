@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="binutils"
 export PKGVER="2.25"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -21,7 +23,7 @@ mkdir $PKGNAME-build
 
 cd $PKGNAME-build
 
-../binutils-2.25/configure \
+../$PKGNAME-$PKGVER/configure \
 	--prefix=/tools \
 	--with-sysroot=$LFS \
 	--with-lib-path=/tools/lib \
@@ -32,14 +34,14 @@ cd $PKGNAME-build
 make
 
 case $(uname -m) in
-	x86_64) mkdir -v /tools/lib && ln -sv lib /tools/lib ;;
+	x86_64) as_root mkdir -v /tools/lib && as_root ln -sv lib /tools/lib64 ;;
 esac
 
-make install
+as_root make install
 
 cd ..
 
-rm -rf binutils-build binutils-2.25
+rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 
 echo "$PKGNAME-$PKGVER pass #1"
 

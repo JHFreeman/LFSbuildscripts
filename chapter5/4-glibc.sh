@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="glibc"
 export PKGVER="2.21"
+export LOGFILE="../glibc.log"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -19,8 +22,8 @@ try_unpack $PKGNAME-$PKGVER
 cd $PKGNAME-$PKGVER
 
 if [ ! -r /usr/include/rpc/types.h ]; then
-  su -c 'mkdir -pv /usr/include/rpc'
-  su -c 'cp -v sunrpc/rpc/*.h /usr/include/rpc'
+  as_root mkdir -pv /usr/include/rpc
+  as_root cp -v sunrpc/rpc/*.h /usr/include/rpc
 fi
 
 sed -e '/ia32/s/^/1:/' \
@@ -30,7 +33,7 @@ sed -e '/ia32/s/^/1:/' \
 mkdir ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-../$PKGNAME-$PKGVER/configure                             \
+ ../$PKGNAME-$PKGVER/configure                             \
       --prefix=/tools                               \
       --host=$LFS_TGT                               \
       --build=$(../glibc-2.21/scripts/config.guess) \
@@ -41,9 +44,15 @@ cd ../$PKGNAME-build
       libc_cv_ctors_header=yes                      \
       libc_cv_c_cleanup=yes
       
-make
+as_root make
 
-make install
+as_root make install
+
+echo 'main(){}' > dummy.c
+$LFS_TGT-gcc dummy.c
+readelf -l a.out >> $LOGFILE
+readelf -l a.out | grep ': /tools' >> $LOGFILE
+rm -v dummy.c a.out
 
 cd ..
 
@@ -51,6 +60,6 @@ rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 
 echo "$PKGNAME-$PKGVER"
 
-unset PKGNAME PKGVER
+unset PKGNAME PKGVER LOGFILE
 
 popd

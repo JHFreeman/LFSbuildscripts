@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="coreutils"
 export PKGVER="8.23"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -15,11 +17,11 @@ try_unpack $PKGNAME-$PKGVER
 
 cd coreutils-8.23
 
-FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=/tools --enable-install-program=hostname
+./configure --prefix=/tools --enable-install-program=hostname
 
 make
 
-make install
+as_root make install
 
 cd ..
 

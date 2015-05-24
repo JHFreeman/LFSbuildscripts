@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="gettext"
 export PKGVER="0.19.4"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -25,7 +27,7 @@ make -C src msgfmt
 make -C src msgmerge
 make -C src xgettext
 
-cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
+as_root cp -v src/{msgfmt,msgmerge,xgettext} /tools/bin
 
 cd ../..
 

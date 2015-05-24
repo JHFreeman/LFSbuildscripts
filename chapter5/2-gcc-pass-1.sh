@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="gcc"
 export PKGVER="4.9.2"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -70,7 +72,7 @@ cd ../$PKGNAME-build
     
 make
 
-make install
+as_root make install
 
 cd ..
 

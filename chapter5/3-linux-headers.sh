@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="linux"
 export PKGVER="3.19"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -18,7 +20,7 @@ cd $PKGNAME-$PKGVER
 make mrproper
 
 make INSTALL_HDR_PATH=dest headers_install
-cp -rv dest/include/* /tools/include
+as_root cp -rv dest/include/* /tools/include
 
 cd ..
 

@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="expect"
 export PKGVER="5.45"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -25,7 +27,7 @@ sed 's:/usr/local/bin:/bin:' configure.orig > configure
 	
 make
 
-make SCRIPTS="" install
+as_root make SCRIPTS="" install
 
 cd ..
 

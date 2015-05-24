@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="perl"
 export PKGVER="5.20.2"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -19,9 +21,9 @@ sh Configure -des -Dprefix=/tools -Dlibs=-lm
 
 make
 
-cp -v perl cpan/podlators/pod2man /tools/bin
-mkdir -pv /tools/lib/perl5/5.20.2
-cp -Rv lib/* /tools/lib/perl5/5.20.2
+as_root cp -v perl cpan/podlators/pod2man /tools/bin
+as_root mkdir -pv /tools/lib/perl5/5.20.2
+as_root cp -Rv lib/* /tools/lib/perl5/5.20.2
 
 cd ..
 

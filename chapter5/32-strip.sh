@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 strip --strip-debug /tools/lib/*
 

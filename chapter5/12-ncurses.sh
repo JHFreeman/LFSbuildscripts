@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="ncurses"
 export PKGVER="5.9"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -24,7 +26,7 @@ cd $PKGNAME-$PKGVER
             
 make
 
-make install
+as_root make install
 
 cd ..
 

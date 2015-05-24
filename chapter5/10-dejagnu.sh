@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="dejagnu"
 export PKGVER="1.5.2"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -17,9 +19,10 @@ cd $PKGNAME-$PKGVER
 
 ./configure --prefix=/tools
 
-make install
+as_root make install
 
 cd ..
+
 rm -rf $PKGNAME-$PKGVER
 
 echo "$PKGNAME-$PKGVER"

@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="util-linux"
 export PKGVER="2.26"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -23,7 +25,7 @@ cd $PKGNAME-$PKGVER
         
 make
 
-make install
+as_root make install
 
 cd ..
 

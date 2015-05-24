@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="gcc"
-exoprt PKGVER="4.9.2"
+export PKGVER="4.9.2"
+export LOGFILE="gcc-pass-2.log"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -61,9 +64,15 @@ RANLIB=$LFS_TGT-ranlib                             \
     
 make
 
-make install
+as_root make install
 
-ln -sv gcc /tools/bin/cc
+as_root ln -sv gcc /tools/bin/cc
+
+echo 'main(){}' > dummy.c
+cc dummy.c
+readelf -l a.out | grep ': /tools' >> $LFS/sources/$LOGFILE
+
+rm -v dummy.c a.out
 
 cd ..
 
@@ -71,6 +80,6 @@ rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 
 echo "$PKGNAME-$PKGVER pass #2"
 
-unset PKGNAME PKGVER
+unset PKGNAME PKGVER LOGFILE
 
 popd

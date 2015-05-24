@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/bin/bash -e
 
 export PKGNAME="bash"
 export PKGVER="4.3.30"
 
 export LFS=/mnt/lfs
+
+source as_root.sh
 
 pushd $LFS/sources
 
@@ -19,9 +21,9 @@ cd $PKGNAME-$PKGVER
 
 make
 
-make install
+as_root make install
 
-ln -sv bash /tools/bin/sh
+as_root ln -sv bash /tools/bin/sh
 
 cd ..
 
