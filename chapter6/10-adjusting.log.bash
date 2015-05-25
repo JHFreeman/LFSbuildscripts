@@ -7,7 +7,7 @@ Configured with: ../gcc-4.9.2/configure --prefix=/tools --with-local-prefix=/too
 Thread model: posix
 gcc version 4.9.2 (GCC) 
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/cc1 -quiet -v -isystem /usr/include dummy.c -quiet -dumpbase dummy.c -mtune=generic -march=x86-64 -auxbase dummy -version -o /tmp/ccIZ2uoc.s
+ /tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/cc1 -quiet -v -isystem /usr/include dummy.c -quiet -dumpbase dummy.c -mtune=generic -march=x86-64 -auxbase dummy -version -o /tmp/ccAps4fn.s
 GNU C (GCC) version 4.9.2 (x86_64-unknown-linux-gnu)
 	compiled by GNU C version 4.9.2, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.2
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -23,14 +23,14 @@ End of search list.
 GNU C (GCC) version 4.9.2 (x86_64-unknown-linux-gnu)
 	compiled by GNU C version 4.9.2, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.2
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-Compiler executable checksum: 4d88eda7ca672d05c3f70b6c049fe041
+Compiler executable checksum: f68ac250fcd35eab8fe23fe69b6bb0bb
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o /tmp/cciHx12F.o /tmp/ccIZ2uoc.s
+ /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o /tmp/cc9df6Jx.o /tmp/ccAps4fn.s
 GNU assembler version 2.25 (x86_64-unknown-linux-gnu) using BFD version (GNU Binutils) 2.25
 COMPILER_PATH=/tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/:/tools/libexec/gcc/x86_64-unknown-linux-gnu/:/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/tools/lib/gcc/x86_64-unknown-linux-gnu/:/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/bin/
 LIBRARY_PATH=/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/:/usr/lib/../lib64/:/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 -plugin /tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/liblto_plugin.so -plugin-opt=/tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper -plugin-opt=-fresolution=/tmp/ccWsoBI9.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/lib/../lib64 -L/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/lib /tmp/cciHx12F.o --verbose -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/../lib64/crtn.o
+ /tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/collect2 -plugin /tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/liblto_plugin.so -plugin-opt=/tools/libexec/gcc/x86_64-unknown-linux-gnu/4.9.2/lto-wrapper -plugin-opt=-fresolution=/tmp/cciWB2eI.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o -L/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2 -L/usr/lib/../lib64 -L/tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/../../../../x86_64-unknown-linux-gnu/lib /tmp/cc9df6Jx.o --verbose -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtend.o /usr/lib/../lib64/crtn.o
 GNU ld (GNU Binutils) 2.25
   Supported emulations:
    elf_x86_64
@@ -277,8 +277,8 @@ attempt to open /usr/lib/../lib64/crti.o succeeded
 /usr/lib/../lib64/crti.o
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o succeeded
 /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/crtbegin.o
-attempt to open /tmp/cciHx12F.o succeeded
-/tmp/cciHx12F.o
+attempt to open /tmp/cc9df6Jx.o succeeded
+/tmp/cc9df6Jx.o
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/libgcc.so failed
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/libgcc.a succeeded
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/libgcc_s.so failed
