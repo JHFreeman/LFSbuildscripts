@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="dejagnu"
-export PKGVER="1.5.2"
+export PKGVER="1.5.3"
 
 export LFS=/mnt/lfs
 

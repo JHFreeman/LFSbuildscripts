@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="linux"
-export PKGVER="3.19"
+export PKGVER="4.0.3"
 
 export LFS=/mnt/lfs
 

@@ -1,8 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="gcc"
-export PKGVER="4.9.2"
-export LOGFILE="gcc-pass-2.log"
+export PKGVER="5.1.0"
 
 export LFS=/mnt/lfs
 
@@ -44,8 +43,8 @@ tar -xf ../mpfr-3.1.2.tar.xz
 mv -v mpfr-3.1.2 mpfr
 tar -xf ../gmp-6.0.0a.tar.xz
 mv -v gmp-6.0.0 gmp
-tar -xf ../mpc-1.0.2.tar.gz
-mv -v mpc-1.0.2 mpc
+tar -xf ../mpc-1.0.3.tar.gz
+mv -v mpc-1.0.3 mpc
 
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
@@ -54,7 +53,7 @@ CC=$LFS_TGT-gcc                                    \
 CXX=$LFS_TGT-g++                                   \
 AR=$LFS_TGT-ar                                     \
 RANLIB=$LFS_TGT-ranlib                             \
-../$PKGNAME-$PKGVER/configure                             \
+../gcc-5.1.0/configure                             \
     --prefix=/tools                                \
     --with-local-prefix=/tools                     \
     --with-native-system-header-dir=/tools/include \
@@ -72,7 +71,7 @@ ln -sv gcc /tools/bin/cc
 
 echo 'main(){}' > dummy.c
 cc dummy.c
-readelf -l a.out | grep ': /tools' >> $LFS/sources/$LOGFILE
+readelf -l a.out | grep ': /tools'
 
 rm -v dummy.c a.out
 

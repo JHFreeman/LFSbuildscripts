@@ -21,5 +21,3 @@ DISTRIB_CODENAME="seeit"
 DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF
 fi
-
-./3-rebooting.sh

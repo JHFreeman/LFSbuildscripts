@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="patch"
-export PKGVER="2.7.4"
+export PKGVER="2.7.5"
 
 export LFS=/mnt/lfs
 

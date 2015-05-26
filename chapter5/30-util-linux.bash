@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="util-linux"
-export PKGVER="2.26"
+export PKGVER="2.26.2"
 
 export LFS=/mnt/lfs
 

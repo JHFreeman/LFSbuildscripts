@@ -19,6 +19,8 @@ try_unpack $PKGNAME-$PKGVER
 
 cd $PKGNAME-$PKGVER
 
+patch -Np1 -i ../$PKGNAME-$PKGVER-gcc5_buildfixes-1.patch
+
 ./configure --prefix=/tools \
             --with-shared   \
             --without-debug \

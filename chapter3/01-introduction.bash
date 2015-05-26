@@ -12,11 +12,11 @@ pushd $LFS/sources
 
 as_root chmod -v a+wt $LFS/sources
 
-wget http://www.linuxfromscratch.org/lfs/view/stable-systemd/wget-list
+wget http://www.linuxfromscratch.org/lfs/view/systemd/wget-list
 
 wget --input-file=$LFS/sources/wget-list --continue 
 
-wget http://www.linuxfromscratch.org/lfs/view/stable-systemd/md5sums
+wget http://www.linuxfromscratch.org/lfs/view/systemd/md5sums
 
 md5sum -c md5sums
 

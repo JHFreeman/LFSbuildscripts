@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="gawk"
-export PKGVER="4.1.1"
+export PKGVER="4.1.2"
 
 export LFS=/mnt/lfs
 

@@ -40,6 +40,8 @@ make install
 make -C ld clean
 make -C ld LIB_PATH=/usr/lib:/lib
 
+ld/ld-new --verbose | grep SEARCH_DIR
+
 cp -v ld/ld-new /tools/bin
 
 cd ..

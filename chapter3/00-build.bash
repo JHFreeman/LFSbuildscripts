@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
-./01-introduction.bash
+source 01-introduction.bash
 
-./02+additionalpackages.bash
+source 02+additionalpackages.bash

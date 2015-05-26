@@ -2,7 +2,7 @@
 
 source get_dir.bash
 
-FILE="openssh-6.7p1.tar.gz"
+FILE="openssh-6.8p1.tar.gz"
 DIR=$(get_dir ${FILE})
 
 pushd /sources
@@ -43,7 +43,7 @@ echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
 
 cd ..
 
-cd blfs-systemd-units-20150210
+cd blfs-bootscripts-20150304
 
 make install-sshd
 

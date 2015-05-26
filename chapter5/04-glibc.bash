@@ -23,14 +23,11 @@ try_unpack $PKGNAME-$PKGVER
 
 cd $PKGNAME-$PKGVER
 
-if [ ! -r /usr/include/rpc/types.h ]; then
-  as_root mkdir -pv /usr/include/rpc
-  as_root cp -v sunrpc/rpc/*.h /usr/include/rpc
-fi
+
 
 sed -e '/ia32/s/^/1:/' \
-	-e '/SSE2/s/^1://' \
-	-i sysdeps/i386/i686/multiarch/mempcpy_chk.S
+    -e '/SSE2/s/^1://' \
+    -i  sysdeps/i386/i686/multiarch/mempcpy_chk.S
 	
 mkdir ../$PKGNAME-build
 cd ../$PKGNAME-build
@@ -41,6 +38,7 @@ cd ../$PKGNAME-build
       --build=$(../glibc-2.21/scripts/config.guess) \
       --disable-profile                             \
       --enable-kernel=2.6.32                        \
+      --enable-obsolete-rpc                         \
       --with-headers=/tools/include                 \
       libc_cv_forced_unwind=yes                     \
       libc_cv_ctors_header=yes                      \
@@ -53,7 +51,7 @@ make install
 echo 'main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
 readelf -l a.out >> $LOGFILE
-readelf -l a.out | grep ': /tools' >> $LOGFILE
+readelf -l a.out | grep ': /tools'
 rm -v dummy.c a.out
 
 cd ..

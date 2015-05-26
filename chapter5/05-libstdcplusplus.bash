@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="gcc"
-export PKGVER="4.9.2"
+export PKGVER="5.1.0"
 
 export LFS=/mnt/lfs
 
@@ -23,7 +23,7 @@ cd $PKGNAME-$PKGVER
 mkdir -pv ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-../gcc-4.9.2/libstdc++-v3/configure \
+../$PKGNAME-$PKGVER/libstdc++-v3/configure \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \

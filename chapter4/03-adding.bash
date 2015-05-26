@@ -1,13 +1,22 @@
 #!/bin/bash -e
 
-source as_root.bash
-
 LFS=/mnt/lfs
 
-#made during installtion
+groupadd lfs
+useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 
-as_root chown -v lfs $LFS/tools
 
-as_root chown -v lfs $LFS/sources
+echo "lfs"  | as_root passwd lfs --stdin 
 
-#already in lfs user
+#To access vm shared directory after chroot
+if [ ! -d $LFS/Home ]; then
+	mkdir -v $LFS/Home
+fi
+
+mount -v -t prl_fs Home $LFS/Home
+
+chown -v lfs $LFS/tools
+
+chown -v lfs $LFS/sources
+
+su - lfs -c "cd /linuxbuild/chapter4"

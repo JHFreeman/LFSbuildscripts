@@ -2,7 +2,7 @@
 
 pushd /sources
 
-export PKGDIR="wget-1.16.1"
+export PKGDIR="wget-1.16.3"
 
 try_unpack $PKGDIR
 

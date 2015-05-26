@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-export PKGNAME="tcl"
+export PKGNAME="tcl-core"
 export PKGVER="8.6.3"
 
 export LFS=/mnt/lfs

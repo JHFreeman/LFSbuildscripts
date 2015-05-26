@@ -8,7 +8,7 @@ try_unpack $PKGDIR
 
 cd $PKGDIR
 
-patch -Np1 -i ../dhcp-4.3.1-client_script-1.patch &&
+patch -Np1 -i ../dhcp-4.3.2-client_script-1.patch &&
 CFLAGS="-D_PATH_DHCLIENT_SCRIPT='\"/sbin/dhclient-script\"'         \
         -D_PATH_DHCPD_CONF='\"/etc/dhcp/dhcpd.conf\"'               \
         -D_PATH_DHCLIENT_CONF='\"/etc/dhcp/dhclient.conf\"'"        \
@@ -24,6 +24,7 @@ make
 make -C client install         &&
 mv -v /usr/sbin/dhclient /sbin &&
 install -v -m755 client/scripts/linux /sbin/dhclient-script
+
 
 if [ ! -e /etc/dhcp/dhclient.conf ];
 cat > /etc/dhcp/dhclient.conf << "EOF"
@@ -51,12 +52,32 @@ if [ ! -d /var/lib/dhclient ]; then
 install -v -dm 755 /var/lib/dhclient
 fi
 
+dhclient eth0
+
 cd ..
 
 rm -rf $PKGDIR
 
-pushd blfs-systemd-units-20150210
+pushd blfs-bootscripts-20150304
 
-make install-dhclient
+make install-service-dhclient
 
 popd
+
+if [ ! -e /etc/sysconfig/ifconfig.eth0 ]; then
+cat > /etc/sysconfig/ifconfig.eth0 << "EOF"
+ONBOOT="yes"
+IFACE="eth0"
+SERVICE="dhclient"
+DHCP_START=""
+DHCP_STOP=""
+
+# Set PRINTIP="yes" to have the script print
+# the DHCP assigned IP address
+PRINTIP="no"
+
+# Set PRINTALL="yes" to print the DHCP assigned values for
+# IP, SM, DG, and 1st NS. This requires PRINTIP="yes".
+PRINTALL="no"
+EOF
+fi

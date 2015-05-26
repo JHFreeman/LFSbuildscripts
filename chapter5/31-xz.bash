@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="xz"
-export PKGVER="5.2.0"
+export PKGVER="5.2.1"
 
 export LFS=/mnt/lfs
 

@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export PKGNAME="gcc"
-export PKGVER="4.9.2"
+export PKGVER="5.1.0"
 
 export LFS=/mnt/lfs
 
@@ -24,8 +24,8 @@ tar -xf ../mpfr-3.1.2.tar.xz
 mv -v mpfr-3.1.2 mpfr
 tar -xf ../gmp-6.0.0a.tar.xz
 mv -v gmp-6.0.0 gmp
-tar -xf ../mpc-1.0.2.tar.gz
-mv -v mpc-1.0.2 mpc
+tar -xf ../mpc-1.0.3.tar.gz
+mv -v mpc-1.0.3 mpc
 
 for file in \
  $(find gcc/config -name linux64.h -o -name linux.h -o -name sysv4.h)
@@ -41,14 +41,13 @@ do
   touch $file.orig
 done
 
-sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
-
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-../gcc-4.9.2/configure                             \
+../gcc-5.1.0/configure                             \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \
+    --with-glibc-version=2.11                      \
     --with-sysroot=$LFS                            \
     --with-newlib                                  \
     --without-headers                              \

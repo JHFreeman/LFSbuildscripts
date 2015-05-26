@@ -2,13 +2,13 @@
 
 pushd /sources
 
-export PKGDIR="openssl-1.0.2"
+export PKGDIR="openssl-1.0.2a"
 
 try_unpack $PKGDIR
 
 cd $PKGDIR
 
-patch -Np1 -i ../openssl-1.0.2-fix_parallel_build-1.patch &&
+patch -Np1 -i ../openssl-1.0.2a-fix_parallel_build-2.patch &&
 
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
