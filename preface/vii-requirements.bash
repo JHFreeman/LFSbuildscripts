@@ -23,4 +23,4 @@ ln -sv bison /usr/bin/yacc
 
 yum -y install texinfo
 
-yum -y install gcc gcc-c++
+yum -y install gcc gcc-c++ bzip2 patch
