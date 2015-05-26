@@ -45,7 +45,7 @@ if ! grep -qs "$LFS/run" /proc/mounts; then
 fi
 
 if ! grep -qs "$LFS/Home" /proc/mounts; then
-	mount -t prl_fs Home $LFS/Home
+	as_root mount -t prl_fs Home $LFS/Home
 fi
 
 if [ -h $LFS/dev/shm ]; then

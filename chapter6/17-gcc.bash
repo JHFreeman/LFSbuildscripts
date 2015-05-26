@@ -2,8 +2,6 @@
 
 source try_unpack.bash
 
-
-
 export PKGNAME="gcc"
 export PKGDIR="gcc-4.9.2"
 
@@ -35,15 +33,13 @@ ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/4.9.2/liblto_plugin.so /usr/lib/bf
 
 echo 'main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
-readelf -l a.out | grep ': /lib' >> ../gcc-4.9.2.log
+readelf -l a.out | grep ': /lib'
 
-grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log >> ../gcc-4.9.2.log
+grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log 
+grep -B4 '^ /usr/include' dummy.log 
 
-grep -B4 '^ /usr/include' dummy.log >> ../gcc-4.9.2.log
-
-grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' >> ../gcc-4.9.2.log
-
-grep "/lib.*/libc.so.6 " dummy.log >> ../gcc-4.9.2.log
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' 
+grep "/lib.*/libc.so.6 " dummy.log 
 
 cd ..
 

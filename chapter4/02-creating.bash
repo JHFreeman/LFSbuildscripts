@@ -11,4 +11,3 @@ fi
 if [ ! -h $LFS/tools ]; then
 	as_root ln -sv $LFS/tools /
 fi
-

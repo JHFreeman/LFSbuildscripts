@@ -8,6 +8,8 @@ export LFS=/mnt/lfs
 
 source try_unpack.bash
 
+source as_root.bash
+
 pushd $LFS/sources
 
 if [ -d $PKGNAME-$PKGVER ]; then
@@ -22,8 +24,8 @@ try_unpack $PKGNAME-$PKGVER
 cd $PKGNAME-$PKGVER
 
 if [ ! -r /usr/include/rpc/types.h ]; then
-  mkdir -pv /usr/include/rpc
-  cp -v sunrpc/rpc/*.h /usr/include/rpc
+  as_root mkdir -pv /usr/include/rpc
+  as_root cp -v sunrpc/rpc/*.h /usr/include/rpc
 fi
 
 sed -e '/ia32/s/^/1:/' \

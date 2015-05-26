@@ -1,8 +1,6 @@
 #!/bin/bash -e
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
-source $DIR/as_root.bash
+source as_root.bash
 
 LFS=/mnt/lfs
 
@@ -14,11 +12,11 @@ pushd $LFS/sources
 
 as_root chmod -v a+wt $LFS/sources
 
-wget --directory-prefix=$LFS/sources http://www.linuxfromscratch.org/lfs/view/stable-systemd/wget-list
+wget http://www.linuxfromscratch.org/lfs/view/stable-systemd/wget-list
 
-wget --input-file=$LFS/sources/wget-list --continue --directory-prefix=$LFS/sources
+wget --input-file=$LFS/sources/wget-list --continue 
 
-wget --directory-prefix=$LFS/sources http://www.linuxfromscratch.org/lfs/view/stable-systemd/md5sums
+wget http://www.linuxfromscratch.org/lfs/view/stable-systemd/md5sums
 
 md5sum -c md5sums
 

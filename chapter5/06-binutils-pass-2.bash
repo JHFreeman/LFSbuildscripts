@@ -23,10 +23,10 @@ cd $PKGNAME-$PKGVER
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-CC=/tools/bin/$LFS_TGT-gcc                \
-AR=/tools/bin/$LFS_TGT-ar                 \
-RANLIB=/tools/bin/$LFS_TGT-ranlib         \
-../$PKGNAME-$PKGVER/configure     \
+CC=$LFS_TGT-gcc                \
+AR=$LFS_TGT-ar                 \
+RANLIB=$LFS_TGT-ranlib         \
+../binutils-2.25/configure     \
     --prefix=/tools            \
     --disable-nls              \
     --disable-werror           \
@@ -39,6 +39,7 @@ make install
 
 make -C ld clean
 make -C ld LIB_PATH=/usr/lib:/lib
+
 cp -v ld/ld-new /tools/bin
 
 cd ..

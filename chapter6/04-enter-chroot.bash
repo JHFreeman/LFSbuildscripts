@@ -19,12 +19,12 @@ as_root /usr/sbin/chroot "$LFS" /tools/bin/env -i \
 
 cd /
 
-as_root umount -v $LFS/dev/pts
-as_root umount -v $LFS/dev
-as_root umount -v $LFS/run
-as_root umount -v $LFS/proc
-as_root umount -v $LFS/sys
-as_root umount -v $LFS/Home
-as_root umount -v $LFS
+#as_root umount -v $LFS/dev/pts
+#as_root umount -v $LFS/dev
+#as_root umount -v $LFS/run
+#as_root umount -v $LFS/proc
+#as_root umount -v $LFS/sys
+#as_root umount -v $LFS/Home
+#as_root umount -v $LFS
 
 #as_root shutdown -r now

@@ -1,9 +1,8 @@
 #!/bin/bash -e
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-$DIR/02-creating-partitions
+source 02-creating-partitions
 
-$DIR/03-filesystem
+source 03-filesystem
 
-$DIR/04-mount
+source 04-mount
 

@@ -23,7 +23,7 @@ cd $PKGNAME-$PKGVER
 mkdir -pv ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-../$PKGNAME-$PKGVER/libstdc++-v3/configure \
+../gcc-4.9.2/libstdc++-v3/configure \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \

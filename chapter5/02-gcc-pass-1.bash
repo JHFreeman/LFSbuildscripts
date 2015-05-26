@@ -46,7 +46,7 @@ sed -i '/k prot/agcc_cv_libc_provides_ssp=yes' gcc/configure
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-../$PKGNAME-$PKGVER/configure                             \
+../gcc-4.9.2/configure                             \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \
     --with-sysroot=$LFS                            \
