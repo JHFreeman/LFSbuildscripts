@@ -31,7 +31,7 @@ cd ../$PKGNAME-build
     --disable-nls                   \
     --disable-libstdcxx-threads     \
     --disable-libstdcxx-pch         \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/4.9.2
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/5.1.0
     
 make
 

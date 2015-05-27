@@ -8,8 +8,6 @@ export LFS=/mnt/lfs
 
 source try_unpack.bash
 
-source as_root.bash
-
 pushd $LFS/sources
 
 if [ -d $PKGNAME-$PKGVER ]; then
