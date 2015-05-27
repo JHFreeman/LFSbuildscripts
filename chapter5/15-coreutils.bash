@@ -17,7 +17,7 @@ fi
 
 try_unpack $PKGNAME-$PKGVER
 
-cd coreutils-8.23
+cd $PKGNAME-$PKGVER
 
 ./configure --prefix=/tools --enable-install-program=hostname
 

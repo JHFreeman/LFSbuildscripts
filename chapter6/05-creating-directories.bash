@@ -1,6 +1,6 @@
 #!/tools/bin/bash -e
 
-source as_root.bash
+
 
 export LFS=/mnt/lfs
 

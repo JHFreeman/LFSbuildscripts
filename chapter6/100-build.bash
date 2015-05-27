@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+trap times EXIT
+
 stage=$1
 
 if [[ $((stage)) -eq 1 ]]; then
