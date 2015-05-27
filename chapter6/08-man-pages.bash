@@ -4,7 +4,7 @@ source try_unpack.bash
 
 export PKGDIR="man-pages-4.00"
 
-
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 

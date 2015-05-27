@@ -2,7 +2,13 @@
 
 source try_unpack.bash
 
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+
 export PKGDIR="acl-2.2.52"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -33,4 +39,4 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGDIR
-echo "./22-acl.sh ran"
+unset CFLAGS CXXFLAGS

@@ -3,7 +3,9 @@
 pushd /sources
 
 export PKGDIR="openssl-1.0.2a"
-
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+trap 'echo '$PKGDIR'; times' EXIT
 try_unpack $PKGDIR
 
 cd $PKGDIR

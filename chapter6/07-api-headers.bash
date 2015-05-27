@@ -2,10 +2,11 @@
 
 source try_unpack.bash
 
-
 pushd /sources
 
 export PKGDIR="linux-4.0.3"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 try_unpack $PKGDIR
 
@@ -26,4 +27,3 @@ echo "$PKGDIR"
 popd
 
 unset  PKGDIR
-echo "./7-api-headers.sh ran"

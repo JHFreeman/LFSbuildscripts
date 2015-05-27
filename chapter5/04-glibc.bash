@@ -3,6 +3,10 @@
 export PKGNAME="glibc"
 export PKGVER="2.21"
 export LOGFILE="../glibc.log"
+export CFLAGS="-march=native -pipe -O2"
+export CXXFLAGS="-march=native -pipe -O2"
+export MAKEFLAGS='-j 3'
+trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
 
@@ -35,7 +39,11 @@ cd ../$PKGNAME-build
       --host=$LFS_TGT                               \
       --build=$(../glibc-2.21/scripts/config.guess) \
       --disable-profile                             \
-      --enable-kernel=2.6.32                        \
+      --enable-kernel=3.4.0	                        \
+      --enable-add-ons								\
+      --enable-bind-now								\
+      --enable-stackguard-randomization				\
+      --enable-lock-epsilon							\
       --enable-obsolete-rpc                         \
       --with-headers=/tools/include                 \
       libc_cv_forced_unwind=yes                     \
@@ -61,3 +69,4 @@ echo "$PKGNAME-$PKGVER"
 unset PKGNAME PKGVER LOGFILE
 
 popd
+unset CFLAGS CXXFLAGS

@@ -2,7 +2,14 @@
 
 source try_unpack.bash
 
+
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+
 export PKGDIR="libtool-2.4.6"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -19,5 +26,4 @@ make install
 cd ..
 rm -rf $PKGDIR
 popd
-unset  PKGDIR
-echo "./38-libtool.sh ran"
+unset  PKGDIR CFLAGS CXXFLAGS

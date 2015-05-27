@@ -2,9 +2,13 @@
 echo "Start 18-bzip2.sh"
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGDIR="bzip2-1.0.6"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -40,4 +44,4 @@ popd
 
 unset  PKGDIR
 
-echo "./18-bzip2.sh ran"
+unset CFLAGS CXXFLAGS

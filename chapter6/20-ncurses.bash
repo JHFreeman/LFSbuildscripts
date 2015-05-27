@@ -2,9 +2,13 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGDIR="ncurses-5.9"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -51,4 +55,4 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGDIR
-echo "./20-ncurses.sh ran"
+unset CFLAGS CXXFLAGS

@@ -2,13 +2,23 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
 
 export PKGDIR="intltool-0.51.0"
 
+trap 'echo '$PKGDIR'; times' EXIT
+
 pushd /sources
 
+if [ -d $PKGDIR ]; then
+	rm -rf $PKGDIR
+fi
+
 try_unpack $PKGDIR
+
+
 
 cd $PKGDIR
 
@@ -23,4 +33,4 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-echo "./50-intltool.sh ran"
+unset CFLAGS CXXFLAGS

@@ -24,4 +24,4 @@ chown -v lfs $LFS/tools
 
 chown -v lfs $LFS/sources
 
-su - lfs -c "cd $LFS/Home/Documents/linuxbuild/chapter4 && ./00-build.bash 2"
+su - lfs

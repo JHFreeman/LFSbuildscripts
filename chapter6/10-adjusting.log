@@ -10,7 +10,7 @@ Configured with: ../gcc-5.1.0/configure --prefix=/tools --with-local-prefix=/too
 Thread model: posix
 gcc version 5.1.0 (GCC) 
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/cc1 -quiet -v -isystem /usr/include dummy.c -quiet -dumpbase dummy.c -mtune=generic -march=x86-64 -auxbase dummy -version -o /tmp/cczvVm9H.s
+ /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/cc1 -quiet -v -isystem /usr/include dummy.c -quiet -dumpbase dummy.c -mtune=generic -march=x86-64 -auxbase dummy -version -o /tmp/ccuOnGP6.s
 GNU C11 (GCC) version 5.1.0 (x86_64-unknown-linux-gnu)
 	compiled by GNU C version 5.1.0, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.3
 GGC heuristics: --param ggc-min-expand=97 --param ggc-min-heapsize=126668
@@ -26,17 +26,17 @@ End of search list.
 GNU C11 (GCC) version 5.1.0 (x86_64-unknown-linux-gnu)
 	compiled by GNU C version 5.1.0, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.3
 GGC heuristics: --param ggc-min-expand=97 --param ggc-min-heapsize=126668
-Compiler executable checksum: cb9f17faa1c2881390286f4206393973
+Compiler executable checksum: 50f185a1892c7764363154970bd53848
 dummy.c:1:1: warning: return type defaults to 'int' [-Wimplicit-int]
  main(){}
  ^
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o /tmp/ccKdUc5a.o /tmp/cczvVm9H.s
+ /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o /tmp/ccAumPpA.o /tmp/ccuOnGP6.s
 GNU assembler version 2.25 (x86_64-unknown-linux-gnu) using BFD version (GNU Binutils) 2.25
 COMPILER_PATH=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/:/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/:/tools/libexec/gcc/x86_64-unknown-linux-gnu/:/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/:/tools/lib/gcc/x86_64-unknown-linux-gnu/:/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/
 LIBRARY_PATH=/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/:/usr/lib/../lib64/:/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/collect2 -plugin /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/liblto_plugin.so -plugin-opt=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cchbYX1D.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0 -L/usr/lib/../lib64 -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib /tmp/ccKdUc5a.o --verbose -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtend.o /usr/lib/../lib64/crtn.o
+ /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/collect2 -plugin /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/liblto_plugin.so -plugin-opt=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc9Ga703.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0 -L/usr/lib/../lib64 -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib /tmp/ccAumPpA.o --verbose -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtend.o /usr/lib/../lib64/crtn.o
 GNU ld (GNU Binutils) 2.25
   Supported emulations:
    elf_x86_64
@@ -283,8 +283,8 @@ attempt to open /usr/lib/../lib64/crti.o succeeded
 /usr/lib/../lib64/crti.o
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o succeeded
 /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o
-attempt to open /tmp/ccKdUc5a.o succeeded
-/tmp/ccKdUc5a.o
+attempt to open /tmp/ccAumPpA.o succeeded
+/tmp/ccAumPpA.o
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc.so failed
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc.a succeeded
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc_s.so failed

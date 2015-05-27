@@ -1,5 +1,7 @@
 #!/tools/bin/bash -e
 
+trap 'echo adjusting; times' EXIT
+
 mv -v /tools/bin/{ld,ld-old}
 mv -v /tools/$(gcc -dumpmachine)/bin/{ld,ld-old}
 mv -v /tools/bin/{ld-new,ld}
@@ -10,10 +12,9 @@ gcc -dumpspecs | sed -e 's@/tools@@g'                   \
     -e '/\*cpp:/{n;s@$@ -isystem /usr/include@}' >      \
     `dirname $(gcc --print-libgcc-file-name)`/specs
 
-
 echo 'main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
-readelf -l a.out | grep ': /lib' >> 10-adjusting.log
+readelf -l a.out | grep ': /lib' > 10-adjusting.log
 
 grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log >> 10-adjusting.log
 
@@ -28,4 +29,3 @@ grep "/lib.*/libc.so.6 " dummy.log >> 10-adjusting.log
 grep found dummy.log >> 10-adjusting.log
 
 rm -v dummy.c a.out dummy.log
-echo "./10-adjusting.sh ran"

@@ -2,6 +2,10 @@
 
 export PKGNAME="binutils"
 export PKGVER="2.25"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export MAKEFLAGS='-j 3'
+trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
 
@@ -48,8 +52,7 @@ cd ..
 
 rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 
-echo "$PKGNAME-$PKGVER pass #2"
-
 unset PKGNAME PKGVER
 
 popd
+unset CFLAGS CXXFLAGS

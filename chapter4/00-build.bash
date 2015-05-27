@@ -6,7 +6,7 @@ if [ ! -z $1 ]; then
 	trap 'echo chapter4:Stage:$stage:; times' EXIT
 fi
 
-if [[ -z $1 ]]; then
+if [[ $((stage)) -eq 1 ]]; then
 	source 02-creating.bash
 	source 03-adding.bash
 elif [[ $((stage)) -eq 2 ]]; then

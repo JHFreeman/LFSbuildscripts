@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 if [ ! -e /usr/bin/make-cert.pl ]; then
 cat > /usr/bin/make-cert.pl << "EOF"
@@ -216,10 +216,13 @@ done
 EOF
 fi
 
+
+
+
 chmod +x /usr/bin/remove-expired-certs.sh
 
 pushd /sources
-
+wget http://anduin.linuxfromscratch.org/sources/other/certdata.txt
 make-ca.sh
 remove-expired-certs.sh certs
 

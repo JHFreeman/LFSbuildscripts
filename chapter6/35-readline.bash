@@ -2,7 +2,14 @@
 
 source try_unpack.bash
 
+
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+
 export PKGDIR="readline-6.3"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -28,5 +35,4 @@ ln -sfv ../../lib/$(readlink /usr/lib/libhistory.so ) /usr/lib/libhistory.so
 cd ..
 rm -rf $PKGDIR
 popd
-unset PKGDIR
-echo "./35-readline.sh ran"
+unset PKGDIR CFLAGS CXXFLAGS

@@ -2,9 +2,13 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGDIR="kmod-20"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -33,4 +37,4 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-echo "./59-kmod.sh ran"
+unset CFLAGS CXXFLAGS

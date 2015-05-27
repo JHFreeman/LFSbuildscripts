@@ -15,5 +15,7 @@ export LFS LC_ALL LFS_TGT PATH
 export MAKEFLAGS=$(($(nproc)+1))
 EOF
 
+export MAKEFLAGS='-j '$(($(nproc)+1))
+
 source ~/.bash_profile
 

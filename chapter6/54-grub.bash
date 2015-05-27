@@ -2,9 +2,13 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -mavx"
 
 export PKGDIR="grub-2.02~beta2"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -27,4 +31,4 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-echo "./54-grub.sh ran"
+unset CFLAGS CXXFLAGS

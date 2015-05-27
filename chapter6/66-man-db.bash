@@ -2,9 +2,13 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGDIR="man-db-2.7.1"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -30,4 +34,4 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-echo "./66-man-db.sh ran"
+unset CFLAGS CXXFLAGS

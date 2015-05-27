@@ -2,9 +2,13 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGDIR="attr-2.4.47"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -32,4 +36,4 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGDIR
-echo "./21-attr.sh ran"
+unset CFLAGS CXXFLAGS

@@ -1,10 +1,16 @@
 #!/tools/bin/bash -e
 
+trap 'echo zlib; times' EXIT
+
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGDIR="zlib-1.2.8"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -28,4 +34,4 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGNAME
-echo "./11-zlib.sh ran"
+unset CFLAGS CXXFLAGS

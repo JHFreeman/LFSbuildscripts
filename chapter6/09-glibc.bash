@@ -2,12 +2,24 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2"
+export CXXFLAGS="-march=native -pipe -O2"
 
 export PKGNAME="glibc"
 export PKGDIR="glibc-2.21"
 
+trap 'echo '$PKGDIR'; times' EXIT
+
 pushd /sources
+
+if [ -d $PKGDIR ]; then
+	rm -rf $PKGDIR
+fi
+
+if [ -d $PKGNAME-build ]; then
+	rm -rf $PKGNAME-build
+fi
 
 try_unpack $PKGDIR
 
@@ -31,7 +43,7 @@ cd ../$PKGNAME-build
 ../$PKGDIR/configure    \
     --prefix=/usr          \
     --disable-profile      \
-    --enable-kernel=2.6.32 \
+    --enable-kernel=3.4.0 \
     --enable-obsolete-rpc
     
 make
@@ -99,4 +111,4 @@ rm -rf $PKGDIR $PKGNAME-build
 popd
 
 unset  PKGDIR PKGNAME
-echo "./9-glibc.sh ran"
+unset CFLAGS CXXFLAGS

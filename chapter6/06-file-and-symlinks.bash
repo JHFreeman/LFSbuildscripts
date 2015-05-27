@@ -99,5 +99,5 @@ chgrp -v 13 /var/log/lastlog
 chmod -v 644 /var/log/lastlog
 chmod -v 600 /var/log/btmp
 
-exec /tools/bin/bash /Home/Documents/linuxbuild/chapter6/00-build.sh 3 --login +h
+exec /tools/bin/bash --login +h
 

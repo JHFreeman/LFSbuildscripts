@@ -1,8 +1,14 @@
-#!/bin/bash
+#!/bin/bash -e
 
-export PKGDIR="dhcp-4.3.1"
-
+export PKGDIR="dhcp-4.3.2"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+trap 'echo '$PKGDIR'; times' EXIT
 pushd /sources
+
+if [ -d $PKGDIR ]; then
+	rm -rf $PKGDIR
+fi
 
 try_unpack $PKGDIR
 
@@ -26,7 +32,7 @@ mv -v /usr/sbin/dhclient /sbin &&
 install -v -m755 client/scripts/linux /sbin/dhclient-script
 
 
-if [ ! -e /etc/dhcp/dhclient.conf ];
+if [ ! -e /etc/dhcp/dhclient.conf ]; then
 cat > /etc/dhcp/dhclient.conf << "EOF"
 # Begin /etc/dhcp/dhclient.conf
 #

@@ -2,10 +2,14 @@
 
 source try_unpack.bash
 
-
+export MAKEFLAGS='-j 3'
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 
 export PKGNAME="binutils"
 export PKGDIR="binutils-2.25"
+
+trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources
 
@@ -31,4 +35,4 @@ rm -rf $PKGDIR $PKGNAME-build
 popd
 
 unset  PKGDIR PKGNAME
-echo "./13-binutils.sh ran"
+unset CFLAGS CXXFLAGS
