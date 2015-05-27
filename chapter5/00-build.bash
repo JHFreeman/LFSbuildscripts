@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
-trap times EXIT
+trap times && echo "chapter5" EXIT
 
-source 01-binutils-pass-1.bash
-source 02-gcc-pass-1.bash
-source 03-linux-headers.bash
-source 04-glibc.bash
-source 05-libstdcplusplus.bash
+#source 01-binutils-pass-1.bash
+#source 02-gcc-pass-1.bash
+#source 03-linux-headers.bash
+#source 04-glibc.bash
+#source 05-libstdcplusplus.bash
 source 06-binutils-pass-2.bash
 source 07-gcc-pass-2.bash
 source 08-tcl.bash

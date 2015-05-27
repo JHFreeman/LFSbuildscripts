@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./52-groff.sh ran"
-source 53-xz.sh

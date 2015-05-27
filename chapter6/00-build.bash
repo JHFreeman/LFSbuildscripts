@@ -1,8 +1,11 @@
 #!/bin/bash -e
 
-trap times EXIT
+if [ ! -z $1 ]; then
+	stage=$1
+	trap times && echo "chapter6:Stage:$stage" EXIT
+fi
 
-stage=$1
+
 
 if [[ $((stage)) -eq 1 ]]; then
 	source 02-preparing.bash

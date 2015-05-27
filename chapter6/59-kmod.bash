@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="kmod-19"
+export PKGDIR="kmod-20"
 
 pushd /sources
 
@@ -34,4 +34,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./59-kmod.sh ran"
-source 60-libpipeline.sh

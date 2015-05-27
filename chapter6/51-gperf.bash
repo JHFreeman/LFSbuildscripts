@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./51-gperf.sh ran"
-source 52-groff.sh

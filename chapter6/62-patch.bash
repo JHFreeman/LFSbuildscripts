@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="patch-2.7.4"
+export PKGDIR="patch-2.7.5"
 
 pushd /sources
 
@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./62-patch.sh ran"
-source 63-systemd.sh

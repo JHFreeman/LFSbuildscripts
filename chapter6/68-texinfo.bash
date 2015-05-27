@@ -32,4 +32,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./68-texinfo.sh ran"
-./69-vim.sh

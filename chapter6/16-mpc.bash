@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="mpc-1.0.2"
+export PKGDIR="mpc-1.0.3"
 
 pushd /sources
 
@@ -12,7 +12,7 @@ try_unpack $PKGDIR
 
 cd $PKGDIR
 
-./configure --prefix=/usr --docdir=/usr/share/doc/mpc-1.0.2
+./configure --prefix=/usr --docdir=/usr/share/doc/mpc-1.0.3
                            
 make
 make html

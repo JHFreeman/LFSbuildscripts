@@ -26,7 +26,7 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-exec /bin/bash --login +h
+exec /bin/bash --login +h /Home/Documents/linuxbuild/chapter6/00-build.bash 4
 #source 37-bc.sh
 
 echo "./36-bash.sh ran"

@@ -19,6 +19,12 @@ sed -e '/ia32/s/^/1:/' \
 	-e '/SSE2/s/^1://' \
 	-i sysdeps/i386/i686/multiarch/mempcpy_chk.S
 	
+sed -i '/glibc.*pad/{i\  buflen = buflen > pad ? buflen - pad : 0;
+                     s/ + pad//}' resolv/nss_dns/dns-host.c
+	
+sed -e '/tst-audit2-ENV/i CFLAGS-tst-audit2.c += -fno-builtin' \
+    -i elf/Makefile
+	
 mkdir ../$PKGNAME-build
 cd ../$PKGNAME-build
 
@@ -35,7 +41,6 @@ make
  make install
 
  cp -v ../$PKGDIR/nscd/nscd.conf /etc/nscd.conf
-
  mkdir -pv /var/cache/nscd
 
  install -v -Dm644 ../glibc-2.21/nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf

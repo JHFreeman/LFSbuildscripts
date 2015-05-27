@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./49-gettext.sh ran"
-source 50-intltool.sh

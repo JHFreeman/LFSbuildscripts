@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="gawk-4.1.1"
+export PKGDIR="gawk-4.1.2"
 
 pushd /sources
 
@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./47-gawk.sh ran"
-source 48-findutils.sh

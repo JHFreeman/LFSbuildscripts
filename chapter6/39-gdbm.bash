@@ -21,4 +21,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./39-gdbm.sh ran"
-source 40-expat.sh

@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./60-libpipeline.sh ran"
-source 61-make.sh

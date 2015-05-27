@@ -26,4 +26,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./67-tar.sh ran"
-source 68-texinfo.sh

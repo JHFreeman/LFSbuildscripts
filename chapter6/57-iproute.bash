@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="iproute2-3.19.0"
+export PKGDIR="iproute2-4.0.0"
 
 pushd /sources
 
@@ -18,11 +18,10 @@ sed -i 's/arpd.8//' man/man8/Makefile
 
 make
 
-make DOCDIR=/usr/share/doc/iproute2-3.19.0 install
+make DOCDIR=/usr/share/doc/iproute2-4.0.0 install
 
 cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./57-iproute.sh ran"
-source 58-kbd.sh

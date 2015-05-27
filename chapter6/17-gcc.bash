@@ -2,18 +2,18 @@
 
 source try_unpack.bash
 
-export PKGNAME="gcc"
-export PKGDIR="gcc-4.9.2"
+PKGNAME="gcc"
+PKGVER="5.1.0"
 
 pushd /sources
 
-try_unpack $PKGDIR
+try_unpack $PKGNAME-$PKGVER
 
 mkdir $PKGNAME-build
 cd $PKGNAME-build
 
 SED=sed                       \
-../$PKGDIR/configure        \
+../$PKGNAME-$PKGVER/configure        \
      --prefix=/usr            \
      --enable-languages=c,c++ \
      --disable-multilib       \
@@ -29,7 +29,7 @@ ln -sv ../usr/bin/cpp /lib
 ln -sv gcc /usr/bin/cc
 
 install -v -dm755 /usr/lib/bfd-plugins
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/4.9.2/liblto_plugin.so /usr/lib/bfd-plugins/
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/$PKGVER/liblto_plugin.so /usr/lib/bfd-plugins/
 
 echo 'main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
@@ -40,6 +40,10 @@ grep -B4 '^ /usr/include' dummy.log
 
 grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' 
 grep "/lib.*/libc.so.6 " dummy.log 
+
+grep found dummy.log
+
+rm -v dummy.c a.out dummy.log
 
 cd ..
 

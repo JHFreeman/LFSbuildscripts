@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./45-automake.sh ran"
-source 46-diffutils.sh

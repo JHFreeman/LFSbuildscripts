@@ -15,7 +15,7 @@ fi
 	TERM="$TERM" \
 	PS1='\u:\w\$ ' \
 	PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-	/tools/bin/bash --login +h /mnt/lfs/Home/Documents/linuxbuild/chapter6/00-build.bash 2
+	/tools/bin/bash --login +h /Home/Documents/linuxbuild/chapter6/00-build.bash 2
 
 cd /
 

@@ -55,8 +55,3 @@ popd
 unset  PKGDIR PKGFILE
 echo "./69-vim.sh ran"
 
-pushd ../chapter7
-
-./2-network.sh
-
-popd

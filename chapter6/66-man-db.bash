@@ -31,4 +31,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./66-man-db.sh ran"
-source 67-tar.sh

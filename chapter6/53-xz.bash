@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="xz-5.2.0"
+export PKGDIR="xz-5.2.1"
 
 pushd /sources
 
@@ -12,7 +12,7 @@ try_unpack $PKGDIR
 
 cd $PKGDIR
 
-./configure --prefix=/usr --docdir=/usr/share/doc/xz-5.2.0
+./configure --prefix=/usr --docdir=/usr/share/doc/xz-5.2.1
 
 make
 
@@ -26,4 +26,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./53-xz.sh ran"
-source 54-grub.sh

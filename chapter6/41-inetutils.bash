@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="inetutils-1.9.2"
+export PKGDIR="inetutils-1.9.3"
 
 pushd /sources
 
@@ -32,4 +32,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./41-inetutils.sh ran"
-source 42-perl.sh

@@ -21,4 +21,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./38-libtool.sh ran"
-source 39-gdbm.sh

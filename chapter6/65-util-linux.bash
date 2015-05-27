@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="util-linux-2.26"
+export PKGDIR="util-linux-2.26.2"
 
 pushd /sources
 
@@ -15,7 +15,7 @@ cd $PKGDIR
 mkdir -pv /var/lib/hwclock
 
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
-            --docdir=/usr/share/doc/util-linux-2.26 \
+            --docdir=/usr/share/doc/util-linux-2.26.2 \
             --disable-chfn-chsh  \
             --disable-login      \
             --disable-nologin    \
@@ -34,4 +34,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./65-util-linux.sh ran"
-source 66-man-db.sh

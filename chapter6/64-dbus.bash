@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="dbus-1.8.16"
+export PKGDIR="dbus-1.8.18"
 
 pushd /sources
 
@@ -15,7 +15,7 @@ cd $PKGDIR
 ./configure --prefix=/usr                       \
             --sysconfdir=/etc                   \
             --localstatedir=/var                \
-            --docdir=/usr/share/doc/dbus-1.8.16 \
+            --docdir=/usr/share/doc/dbus-1.8.18 \
             --with-console-auth-dir=/run/console
             
 make
@@ -32,4 +32,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./64-dbus.sh ran"
-source 65-util-linux.sh

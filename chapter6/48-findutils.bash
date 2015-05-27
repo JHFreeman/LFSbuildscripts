@@ -25,4 +25,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./48-findutils.sh ran"
-source 49-gettext.sh

@@ -23,4 +23,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./44-autoconf.sh ran"
-source 45-automake.sh

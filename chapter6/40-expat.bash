@@ -21,4 +21,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./40-expat.sh ran"
-source 41-inetutils.sh

@@ -28,4 +28,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./58-kbd.sh ran"
-source 59-kmod.sh

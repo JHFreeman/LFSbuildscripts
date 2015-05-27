@@ -5,7 +5,7 @@ source try_unpack.bash
 
 pushd /sources
 
-export PKGDIR="linux-3.19"
+export PKGDIR="linux-4.0.3"
 
 try_unpack $PKGDIR
 

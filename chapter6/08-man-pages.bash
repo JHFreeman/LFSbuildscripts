@@ -2,7 +2,7 @@
 
 source try_unpack.bash
 
-export PKGDIR="man-pages-3.79"
+export PKGDIR="man-pages-4.00"
 
 
 

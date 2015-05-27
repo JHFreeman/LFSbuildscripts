@@ -4,7 +4,7 @@ source try_unpack.bash
 
 
 
-export PKGDIR="intltool-0.50.2"
+export PKGDIR="intltool-0.51.0"
 
 pushd /sources
 
@@ -24,4 +24,3 @@ rm -rf $PKGDIR
 popd
 unset  PKGDIR
 echo "./50-intltool.sh ran"
-source 51-gperf.sh

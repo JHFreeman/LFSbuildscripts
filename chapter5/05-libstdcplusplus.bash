@@ -27,7 +27,6 @@ cd ../$PKGNAME-build
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \
-    --disable-shared                \
     --disable-nls                   \
     --disable-libstdcxx-threads     \
     --disable-libstdcxx-pch         \
