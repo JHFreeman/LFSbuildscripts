@@ -10,9 +10,3 @@ cat > /etc/shells << "EOF"
 # End /etc/shells
 EOF
 fi
-
-pushd ../chapter8
-
-source 2-fstab.sh
-
-popd

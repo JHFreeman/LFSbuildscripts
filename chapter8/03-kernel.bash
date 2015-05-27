@@ -1,10 +1,12 @@
 #!/bin/bash -e
 
-export DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 source try_unpack.bash
 
-export PKGDIR="linux-3.19"
+PKGVER="4.0.3"
+PKGDIR="linux-$PKGVER"
+
 
 pushd /sources
 
@@ -34,18 +36,16 @@ make
 
 make modules_install
 
-cp arch/x86/boot/bzImage /boot/vmlinuz-3.19-lfs-7.7-systemd
+cp arch/x86/boot/bzImage /boot/vmlinuz-$PKGVER-lfs-Developmental-systemd
 
-cp -v System.map /boot/System.map-3.19
+cp -v System.map /boot/System.map-$PKGVER
 
-cp -v .config /boot/config-3.19
+cp -v .config /boot/config-$PKGVER
 
-install -d /usr/share/doc/linux-3.19
+install -d /usr/share/doc/linux-$PKGVER
 
-cp -r Documentation/* /usr/share/doc/linux-3.19
+cp -r Documentation/* /usr/share/doc/linux-$PKGVER
 
 chown -R 0:0 /etc/src/$PKGDIR
 
 popd
-
-./4-grub.sh

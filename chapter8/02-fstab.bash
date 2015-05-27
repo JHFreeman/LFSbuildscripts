@@ -13,4 +13,3 @@ cat > /etc/fstab << "EOF"
 # End /etc/fstab
 EOF
 fi
-./3-kernel.sh

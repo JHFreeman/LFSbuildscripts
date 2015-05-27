@@ -7,5 +7,3 @@ cat > /etc/adjtime << "EOF"
 LOCAL
 EOF
 fi
-
-source 8-inputrc.sh

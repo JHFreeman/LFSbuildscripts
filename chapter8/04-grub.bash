@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+KERNELVER="4.0.3"
+
 grub-install /dev/sdb
 
 if [ ! -e /boot/grub/grub.cfg ]; then
@@ -11,14 +13,8 @@ set timeout=5
 insmod ext2
 set root=(hd0,1)
 
-menuentry "GNU/Linux, Linux 3.19-lfs-7.7-systemd" {
-        linux   /boot/vmlinuz-3.19-lfs-7.7-systemd root=/dev/sda1 ro
+menuentry "GNU/Linux, Linux $PKGVER-lfs-Developmental-systemd" {
+        linux   /boot/vmlinuz-3.19-lfs-Developmental-systemd root=/dev/sda1 ro
 }
 EOF
 fi
-
-pushd ../chapter9
-
-./1-the-end.sh
-
-popd

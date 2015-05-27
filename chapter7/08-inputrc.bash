@@ -45,5 +45,3 @@ set bell-style none
 # End /etc/inputrc
 EOF
 fi
-
-source 9-shells.sh

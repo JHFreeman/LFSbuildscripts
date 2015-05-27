@@ -30,5 +30,3 @@ cat > /etc/hosts << "EOF"
 # End /etc/hosts (network card version)
 EOF
 fi
-
-source 5-clock.sh
