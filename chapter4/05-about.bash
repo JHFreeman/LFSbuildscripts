@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-export MAKEFLAGS=$(($(nproc)+1))
+export MAKEFLAGS='-j '$(($(nproc)+1))

@@ -15,17 +15,17 @@ echo 'main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
 readelf -l a.out | grep ': /lib' >> 10-adjusting.log
 
-grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log
+grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log >> 10-adjusting.log
 
 cat dummy.log >> 10-adjusting.log
 
-grep -B1 '^ /usr/include' dummy.log
+grep -B1 '^ /usr/include' dummy.log >> 10-adjusting.log
 
-grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' >> 10-adjusting.log
 
-grep "/lib.*/libc.so.6 " dummy.log
+grep "/lib.*/libc.so.6 " dummy.log >> 10-adjusting.log
 
-grep found dummy.log
+grep found dummy.log >> 10-adjusting.log
 
 rm -v dummy.c a.out dummy.log
 echo "./10-adjusting.sh ran"

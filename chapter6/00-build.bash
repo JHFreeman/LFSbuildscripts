@@ -1,23 +1,24 @@
-#!/bin/bash -e
-
 if [ ! -z $1 ]; then
 	stage=$1
-	trap times && echo "chapter6:Stage:$stage" EXIT
+	trap 'echo chapter6:Stage:$stage; times' EXIT
 fi
 
-
+export MAKEFLAGS=$(($(nproc)+1))
 
 if [[ $((stage)) -eq 1 ]]; then
+#!/bin/bash -e
 	source 02-preparing.bash
 	source 04-enter-chroot.bash
 elif [[ $((stage)) -eq 2 ]]; then
+#!/tools/bin/bash -e
 	source 05-creating-directories.bash
 	source 06-file-and-symlinks.bash
 elif [[ $((stage)) -eq 3 ]]; then
-	source 07-api-headers.bash
-	source 08-man-pages.bash
-	source 09-glibc.bash
-	source 10-adjusting.bash
+#!/tools/bin/bash -e
+	#source 07-api-headers.bash
+	#source 08-man-pages.bash
+	#source 09-glibc.bash
+	#source 10-adjusting.bash
 	source 11-zlib.bash
 	source 12-file.bash
 	source 13-binutils.bash
@@ -45,6 +46,7 @@ elif [[ $((stage)) -eq 3 ]]; then
 	source 35-readline.bash
 	source 36-bash.bash
 elif [[ $((stage)) -eq 4 ]]; then
+#!/bin/bash -e
 	source 37-bc.bash
 	source 38-libtool.bash
 	source 39-gdbm.bash

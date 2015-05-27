@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-trap times && echo "LFS-Developmental" EXIT
+trap 'echo lfs; times' EXIT
 
 source preface/vii-requirements.bash
 

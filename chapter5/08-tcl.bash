@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
-export PKGNAME="tcl-core"
-export PKGVER="8.6.3"
+export PKGNAME="tcl"
+export PKGVER="8.6.4"
 
 export LFS=/mnt/lfs
 
@@ -15,7 +15,7 @@ if [ -d $PKGNAME$PKGVER ]; then
 	rm -rf $PKGNAME$PKGVER
 fi
 
-try_unpack $PKGNAME$PKGVER"-src"
+try_unpack $PKGNAME-core$PKGVER"-src"
 
 cd $PKGNAME$PKGVER
 

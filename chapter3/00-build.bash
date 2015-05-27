@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-trap times && echo ":chapter3" EXIT
+trap 'echo chapter3; times' EXIT
 
 source 01-introduction.bash
 

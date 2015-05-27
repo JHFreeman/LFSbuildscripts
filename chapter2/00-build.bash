@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-trap times && echo ":chapter2" EXIT
+trap 'echo chapter2; times' EXIT
 
 source 02-creating-partitions.bash
 

@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-trap times && echo "chapter5" EXIT
+trap 'echo chapter5; times' EXIT
 
 source 01-binutils-pass-1.bash
 source 02-gcc-pass-1.bash

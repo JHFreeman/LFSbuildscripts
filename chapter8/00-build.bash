@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-trap times && echo ":chapter8" EXIT
+trap 'echo chapter8; times' EXIT
 
 source 02-fstab.bash
 source 03-kernel.bash
