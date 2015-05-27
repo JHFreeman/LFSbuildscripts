@@ -2,9 +2,6 @@
 
 export PKGNAME="tcl"
 export PKGVER="8.6.4"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export MAKEFLAGS='-j 3'
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -25,6 +22,8 @@ cd $PKGNAME$PKGVER
 
 cd unix
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
 ./configure --prefix=/tools
 
 make
@@ -45,4 +44,3 @@ rm -rf $PKGNAME$PKGVER
 unset PKGNAME PKGVER
 
 popd
-unset CFLAGS CXXFLAGS

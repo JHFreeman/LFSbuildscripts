@@ -2,9 +2,6 @@
 
 export PKGNAME="dejagnu"
 export PKGVER="1.5.3"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export MAKEFLAGS='-j 3'
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -23,6 +20,8 @@ try_unpack $PKGNAME-$PKGVER
 
 cd $PKGNAME-$PKGVER
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
 ./configure --prefix=/tools
 
 make install
@@ -36,4 +35,3 @@ echo "$PKGNAME-$PKGVER"
 unset PKGNAME PKGVER
 
 popd
-unset CFLAGS CXXFLAGS

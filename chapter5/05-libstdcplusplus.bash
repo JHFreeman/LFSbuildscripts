@@ -2,9 +2,7 @@
 
 export PKGNAME="gcc"
 export PKGVER="5.1.0"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export MAKEFLAGS='-j 3'
+
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -27,6 +25,8 @@ cd $PKGNAME-$PKGVER
 mkdir -pv ../$PKGNAME-build
 cd ../$PKGNAME-build
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
 ../$PKGNAME-$PKGVER/libstdc++-v3/configure \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
@@ -44,9 +44,6 @@ cd ..
 
 rm -rf $PKGNAME-$PKGVER $PKGNAME-build
 
-echo "$PKGNAME-$PKGVER: libstdc++"
-
 unset PKGNAME PKGVER
 
 popd
-unset CFLAGS CXXFLAGS

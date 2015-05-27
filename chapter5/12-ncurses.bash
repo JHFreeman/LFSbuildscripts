@@ -2,9 +2,7 @@
 
 export PKGNAME="ncurses"
 export PKGVER="5.9"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export MAKEFLAGS='-j 3'
+
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -25,6 +23,8 @@ cd $PKGNAME-$PKGVER
 
 patch -Np1 -i ../$PKGNAME-$PKGVER-gcc5_buildfixes-1.patch
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
 ./configure --prefix=/tools \
             --with-shared   \
             --without-debug \
@@ -45,4 +45,3 @@ echo "$PKGNAME-$PKGVER"
 unset PKGNAME PKGVER
 
 popd
-unset CFLAGS CXXFLAGS

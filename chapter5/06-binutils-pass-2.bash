@@ -2,9 +2,6 @@
 
 export PKGNAME="binutils"
 export PKGVER="2.25"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export MAKEFLAGS='-j 3'
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -27,6 +24,8 @@ cd $PKGNAME-$PKGVER
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
 CC=$LFS_TGT-gcc                \
 AR=$LFS_TGT-ar                 \
 RANLIB=$LFS_TGT-ranlib         \
@@ -55,4 +54,3 @@ rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 unset PKGNAME PKGVER
 
 popd
-unset CFLAGS CXXFLAGS

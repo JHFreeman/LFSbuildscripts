@@ -12,10 +12,8 @@ LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
-export MAKEFLAGS=$(($(nproc)+1))
+export MAKEFLAGS='-j 3'
 EOF
-
-export MAKEFLAGS='-j '$(($(nproc)+1))
 
 source ~/.bash_profile
 

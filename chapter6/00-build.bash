@@ -3,7 +3,7 @@ if [ ! -z $1 ]; then
 	trap 'echo chapter6:Stage:$stage; times' EXIT
 fi
 
-export MAKEFLAGS=$(($(nproc)+1))
+export MAKEFLAGS='-j 3'
 
 export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
@@ -18,10 +18,10 @@ elif [[ $((stage)) -eq 2 ]]; then
 	source 06-file-and-symlinks.bash
 elif [[ $((stage)) -eq 3 ]]; then
 #!/tools/bin/bash -e
-	#source 07-api-headers.bash
-	#source 08-man-pages.bash
-	#source 09-glibc.bash
-	#source 10-adjusting.bash
+	source 07-api-headers.bash
+	source 08-man-pages.bash
+	source 09-glibc.bash
+	source 10-adjusting.bash
 	source 11-zlib.bash
 	source 12-file.bash
 	source 13-binutils.bash

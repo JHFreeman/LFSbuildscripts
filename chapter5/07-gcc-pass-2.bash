@@ -2,9 +2,6 @@
 
 export PKGNAME="gcc"
 export PKGVER="5.1.0"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export MAKEFLAGS='-j 3'
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -51,6 +48,9 @@ mv -v mpc-1.0.3 mpc
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
+
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
 CC=$LFS_TGT-gcc                                    \
 CXX=$LFS_TGT-g++                                   \
 AR=$LFS_TGT-ar                                     \
@@ -85,4 +85,3 @@ rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 unset PKGNAME PKGVER LOGFILE
 
 popd
-unset CFLAGS CXXFLAGS

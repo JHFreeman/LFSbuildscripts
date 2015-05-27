@@ -3,9 +3,7 @@
 export PKGNAME="glibc"
 export PKGVER="2.21"
 export LOGFILE="../glibc.log"
-export CFLAGS="-march=native -pipe -O2"
-export CXXFLAGS="-march=native -pipe -O2"
-export MAKEFLAGS='-j 3'
+
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
 export LFS=/mnt/lfs
@@ -34,6 +32,8 @@ sed -e '/ia32/s/^/1:/' \
 mkdir ../$PKGNAME-build
 cd ../$PKGNAME-build
 
+CFLAGS="-march=native -pipe -O2" \
+CXXFLAGS="-march=native -pipe -O2" \
  ../$PKGNAME-$PKGVER/configure                             \
       --prefix=/tools                               \
       --host=$LFS_TGT                               \
@@ -64,9 +64,6 @@ cd ..
 
 rm -rf $PKGNAME-build $PKGNAME-$PKGVER
 
-echo "$PKGNAME-$PKGVER"
-
 unset PKGNAME PKGVER LOGFILE
 
 popd
-unset CFLAGS CXXFLAGS
