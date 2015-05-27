@@ -5,11 +5,7 @@ stage=$1
 if [[ $((stage)) -eq 1 ]]; then
 	source 02-preparing.bash
 	source 04-enter-chroot.bash
-else
-	echo "Please specify a valid stage of the build to process"
-fi
-
-if [[ $((stage)) -eq 2 ]]; then
+elif [[ $((stage)) -eq 2 ]]; then
 	source 05-creating-directories.bash
 	source 06-file-and-symlinks.bash
 elif [[ $((stage)) -eq 3 ]]; then
