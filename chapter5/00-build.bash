@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 trap 'echo chapter5; times' EXIT
-
+export CFLAGS="-march=native -pipe -O2 -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -mavx"
 source 01-binutils-pass-1.bash
 source 02-gcc-pass-1.bash
 source 03-linux-headers.bash
@@ -35,3 +36,4 @@ source 30-util-linux.bash
 source 31-xz.bash
 source 32-strip.bash
 source 36-ownership.bash
+unset CXXFLAGS CFLAGS

@@ -13,8 +13,8 @@ set timeout=5
 insmod ext2
 set root=(hd0,1)
 
-menuentry "GNU/Linux, Linux $PKGVER-lfs-Developmental-systemd" {
-        linux   /boot/vmlinuz-3.19-lfs-Developmental-systemd root=/dev/sda1 ro
+menuentry "GNU/Linux, Linux $KERNELVER-lfs-developmental-systemd" {
+        linux   /boot/vmlinuz-$KERNELVER-lfs-developmental-systemd root=/dev/sda1 ro
 }
 EOF
 fi

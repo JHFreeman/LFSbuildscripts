@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+export CFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
+
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 source try_unpack.bash
@@ -36,7 +39,7 @@ make
 
 make modules_install
 
-cp arch/x86/boot/bzImage /boot/vmlinuz-$PKGVER-lfs-Developmental-systemd
+cp arch/x86/boot/bzImage /boot/vmlinuz-$PKGVER-lfs-developmental-systemd
 
 cp -v System.map /boot/System.map-$PKGVER
 
@@ -49,3 +52,5 @@ cp -r Documentation/* /usr/share/doc/linux-$PKGVER
 chown -R 0:0 /etc/src/$PKGDIR
 
 popd
+
+unset CFLAGS CXXFLAGS

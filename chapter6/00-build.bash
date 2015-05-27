@@ -5,6 +5,9 @@ fi
 
 export MAKEFLAGS=$(($(nproc)+1))
 
+export CFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
+
 if [[ $((stage)) -eq 1 ]]; then
 #!/bin/bash -e
 	source 02-preparing.bash
@@ -83,3 +86,4 @@ elif [[ $((stage)) -eq 4 ]]; then
 else
 	echo "Please specify a valid stage of the build to process"
 fi
+unset CXXFLAGS CFLAGS

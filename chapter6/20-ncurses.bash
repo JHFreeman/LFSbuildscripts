@@ -8,14 +8,21 @@ export PKGDIR="ncurses-5.9"
 
 pushd /sources
 
+if [ -d $PKGDIR ]; then
+	rm -rf $PKGDIR
+fi
+
 try_unpack $PKGDIR
 
 cd $PKGDIR
 
+patch -Np1 -i ../ncurses-5.9-gcc5_buildfixes-1.patch
+
 ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
             --with-shared           \
-            --without-debug         \
+            --without-debug   		\
+            --without-normal        \
             --enable-pc-files       \
             --enable-widec
             
@@ -30,17 +37,12 @@ ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so
 for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
     echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so
-    ln -sfv lib${lib}w.a      /usr/lib/lib${lib}.a
     ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
 done
-
-ln -sfv libncurses++w.a /usr/lib/libncurses++.a
 
 rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" > /usr/lib/libcursesw.so
 ln -sfv libncurses.so      /usr/lib/libcurses.so
-ln -sfv libncursesw.a      /usr/lib/libcursesw.a
-ln -sfv libncurses.a       /usr/lib/libcurses.a
 
 cd ..
 
