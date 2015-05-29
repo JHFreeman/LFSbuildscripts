@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="psmisc-22.21"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -16,6 +12,8 @@ try_unpack $PKGDIR
 
 cd $PKGDIR
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr
 
 make
@@ -29,4 +27,3 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

@@ -49,8 +49,8 @@ mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 CC=$LFS_TGT-gcc                                    \
 CXX=$LFS_TGT-g++                                   \
 AR=$LFS_TGT-ar                                     \

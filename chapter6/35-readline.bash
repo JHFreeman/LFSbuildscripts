@@ -2,11 +2,6 @@
 
 source try_unpack.bash
 
-
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="readline-6.3"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -22,6 +17,8 @@ patch -Np1 -i ../readline-6.3-upstream_fixes-3.patch
 sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr --docdir=/usr/share/doc/readline-6.3
 
 make SHLIB_LIBS=-lncurses

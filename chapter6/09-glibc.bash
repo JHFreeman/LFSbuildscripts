@@ -3,8 +3,6 @@
 source try_unpack.bash
 
 export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2"
-export CXXFLAGS="-march=native -pipe -O2"
 
 export PKGNAME="glibc"
 export PKGDIR="glibc-2.21"
@@ -40,6 +38,8 @@ sed -e '/tst-audit2-ENV/i CFLAGS-tst-audit2.c += -fno-builtin' \
 mkdir ../$PKGNAME-build
 cd ../$PKGNAME-build
 
+CFLAGS="-march=native -pipe -O2" \
+CXXFLAGS="-march=native -pipe -O2" \
 ../$PKGDIR/configure    \
     --prefix=/usr          \
     --disable-profile      \
@@ -111,4 +111,3 @@ rm -rf $PKGDIR $PKGNAME-build
 popd
 
 unset  PKGDIR PKGNAME
-unset CFLAGS CXXFLAGS

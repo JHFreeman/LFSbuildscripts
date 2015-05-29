@@ -2,8 +2,8 @@
 
 trap 'echo chapter8; times' EXIT
 
-export CFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
-export CXXFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 source 02-fstab.bash
 source 03-kernel.bash
 source 04-grub.bash

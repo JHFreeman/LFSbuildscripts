@@ -1,10 +1,12 @@
 #!/bin/bash
 
+source try_unpack.bash
+
 pushd /sources
 
 export PKGDIR="openssl-1.0.2a"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 trap 'echo '$PKGDIR'; times' EXIT
 try_unpack $PKGDIR
 

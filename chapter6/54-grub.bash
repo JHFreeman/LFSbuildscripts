@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -mavx"
-
 export PKGDIR="grub-2.02~beta2"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -16,6 +12,8 @@ try_unpack $PKGDIR
 
 cd $PKGDIR
 
+unset CFLAGS CXXFLAGS
+
 ./configure --prefix=/usr          \
             --sbindir=/sbin        \
             --sysconfdir=/etc      \
@@ -25,10 +23,11 @@ cd $PKGDIR
             
 make
 
+make uninstall
+
 make install
 
 cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

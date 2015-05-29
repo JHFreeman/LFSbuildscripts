@@ -21,8 +21,8 @@ try_unpack $PKGNAME-$PKGVER
 cd $PKGNAME-$PKGVER
 
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 PKG_CONFIG= ./configure --prefix=/tools
 
 make

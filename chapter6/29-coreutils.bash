@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="coreutils-8.23"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -19,6 +15,8 @@ cd $PKGDIR
 patch -Np1 -i ../coreutils-8.23-i18n-1.patch
 touch Makefile.in
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \
             --enable-no-install-program=kill,uptime
@@ -56,4 +54,3 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

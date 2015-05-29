@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
+source try_unpack.bash
+
 export PKGDIR="dhcp-4.3.2"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 trap 'echo '$PKGDIR'; times' EXIT
 pushd /sources
 
@@ -17,7 +17,9 @@ cd $PKGDIR
 patch -Np1 -i ../dhcp-4.3.2-client_script-1.patch &&
 CFLAGS="-D_PATH_DHCLIENT_SCRIPT='\"/sbin/dhclient-script\"'         \
         -D_PATH_DHCPD_CONF='\"/etc/dhcp/dhcpd.conf\"'               \
-        -D_PATH_DHCLIENT_CONF='\"/etc/dhcp/dhclient.conf\"'"        \
+        -D_PATH_DHCLIENT_CONF='\"/etc/dhcp/dhclient.conf\"'			\
+        -march=native -pipe -O2 -fstack-protector-strong"     \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"	\
 ./configure --prefix=/usr                                           \
             --sysconfdir=/etc/dhcp                                  \
             --localstatedir=/var                                    \

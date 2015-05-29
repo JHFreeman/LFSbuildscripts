@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="attr-2.4.47"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -20,6 +16,8 @@ sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in
 
 sed -i -e "/SUBDIRS/s|man2||" man/Makefile
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr
 
 make
@@ -36,4 +34,3 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

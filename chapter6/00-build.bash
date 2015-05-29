@@ -5,8 +5,8 @@ fi
 
 export MAKEFLAGS='-j 3'
 
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 
 if [[ $((stage)) -eq 1 ]]; then
 #!/bin/bash -e

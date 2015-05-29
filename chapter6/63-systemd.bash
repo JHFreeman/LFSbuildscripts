@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="systemd-219"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -33,6 +29,8 @@ patch -Np1 -i ../systemd-219-compat-1.patch
 
 sed -i "s:test/udev-test.pl ::g" Makefile.in
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr                                           \
             --sysconfdir=/etc                                       \
             --localstatedir=/var                                    \
@@ -72,4 +70,3 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

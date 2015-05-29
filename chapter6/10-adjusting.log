@@ -1,3 +1,7 @@
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+/usr/lib/../lib64/crt1.o succeeded
+/usr/lib/../lib64/crti.o succeeded
+/usr/lib/../lib64/crtn.o succeeded
 Reading specs from /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/specs
 COLLECT_GCC=cc
 COLLECT_LTO_WRAPPER=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/lto-wrapper
@@ -6,10 +10,10 @@ Configured with: ../gcc-5.1.0/configure --prefix=/tools --with-local-prefix=/too
 Thread model: posix
 gcc version 5.1.0 (GCC) 
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/cc1 -quiet -v -isystem /usr/include dummy.c -quiet -dumpbase dummy.c -mtune=generic -march=x86-64 -auxbase dummy -version -o /tmp/cchtc4uM.s
+ /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/cc1 -quiet -v -isystem /usr/include dummy.c -quiet -dumpbase dummy.c -mtune=generic -march=x86-64 -auxbase dummy -version -o /tmp/ccz59VuD.s
 GNU C11 (GCC) version 5.1.0 (x86_64-unknown-linux-gnu)
 	compiled by GNU C version 5.1.0, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.3
-GGC heuristics: --param ggc-min-expand=97 --param ggc-min-heapsize=126668
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 ignoring nonexistent directory "/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/include"
 ignoring duplicate directory "/tools/include"
 #include "..." search starts here:
@@ -21,18 +25,18 @@ ignoring duplicate directory "/tools/include"
 End of search list.
 GNU C11 (GCC) version 5.1.0 (x86_64-unknown-linux-gnu)
 	compiled by GNU C version 5.1.0, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.3
-GGC heuristics: --param ggc-min-expand=97 --param ggc-min-heapsize=126668
-Compiler executable checksum: 50f185a1892c7764363154970bd53848
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 27a379946201099bd5e8ce335cdbdba8
 dummy.c:1:1: warning: return type defaults to 'int' [-Wimplicit-int]
  main(){}
  ^
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o /tmp/ccTdZbnw.o /tmp/cchtc4uM.s
+ /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/as -v --64 -o /tmp/ccnqR4X6.o /tmp/ccz59VuD.s
 GNU assembler version 2.25 (x86_64-unknown-linux-gnu) using BFD version (GNU Binutils) 2.25
 COMPILER_PATH=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/:/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/:/tools/libexec/gcc/x86_64-unknown-linux-gnu/:/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/:/tools/lib/gcc/x86_64-unknown-linux-gnu/:/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/
 LIBRARY_PATH=/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/:/usr/lib/../lib64/:/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64'
- /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/collect2 -plugin /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/liblto_plugin.so -plugin-opt=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc1Uwegg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 crt1.o crti.o /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0 -L/usr/lib/../lib64 -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib /tmp/ccTdZbnw.o --verbose -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtend.o crtn.o
+ /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/collect2 -plugin /tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/liblto_plugin.so -plugin-opt=/tools/libexec/gcc/x86_64-unknown-linux-gnu/5.1.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cc2KH6rA.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 /usr/lib/../lib64/crt1.o /usr/lib/../lib64/crti.o /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0 -L/usr/lib/../lib64 -L/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib /tmp/ccnqR4X6.o --verbose -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtend.o /usr/lib/../lib64/crtn.o
 GNU ld (GNU Binutils) 2.25
   Supported emulations:
    elf_x86_64
@@ -273,12 +277,14 @@ SECTIONS
 
 
 ==================================================
-attempt to open crt1.o failed
-attempt to open crti.o failed
+attempt to open /usr/lib/../lib64/crt1.o succeeded
+/usr/lib/../lib64/crt1.o
+attempt to open /usr/lib/../lib64/crti.o succeeded
+/usr/lib/../lib64/crti.o
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o succeeded
 /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtbegin.o
-attempt to open /tmp/ccTdZbnw.o succeeded
-/tmp/ccTdZbnw.o
+attempt to open /tmp/ccnqR4X6.o succeeded
+/tmp/ccnqR4X6.o
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc.so failed
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc.a succeeded
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc_s.so failed
@@ -287,18 +293,16 @@ attempt to open /usr/lib/../lib64/libgcc_s.so succeeded
 -lgcc_s (/usr/lib/../lib64/libgcc_s.so)
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libc.so failed
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libc.a failed
-attempt to open /usr/lib/../lib64/libc.so failed
-attempt to open /usr/lib/../lib64/libc.a failed
-attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib/libc.so failed
-attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/lib/libc.a failed
-attempt to open /tools/x86_64-unknown-linux-gnu/sys-root/tools/x86_64-unknown-linux-gnu/lib64/libc.so failed
-attempt to open /tools/x86_64-unknown-linux-gnu/sys-root/tools/x86_64-unknown-linux-gnu/lib64/libc.a failed
-attempt to open /usr/lib/libc.so failed
-attempt to open /usr/lib/libc.a failed
-attempt to open /lib/libc.so failed
-attempt to open /lib/libc.a failed
-attempt to open /tools/x86_64-unknown-linux-gnu/sys-root/tools/x86_64-unknown-linux-gnu/lib/libc.so failed
-attempt to open /tools/x86_64-unknown-linux-gnu/sys-root/tools/x86_64-unknown-linux-gnu/lib/libc.a failed
+attempt to open /usr/lib/../lib64/libc.so succeeded
+opened script file /usr/lib/../lib64/libc.so
+opened script file /usr/lib/../lib64/libc.so
+attempt to open /lib64/libc.so.6 succeeded
+/lib64/libc.so.6
+attempt to open /usr/lib64/libc_nonshared.a succeeded
+(/usr/lib64/libc_nonshared.a)elf-init.oS
+attempt to open /lib64/ld-linux-x86-64.so.2 succeeded
+/lib64/ld-linux-x86-64.so.2
+/lib64/ld-linux-x86-64.so.2
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc.so failed
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc.a succeeded
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/libgcc_s.so failed
@@ -307,15 +311,15 @@ attempt to open /usr/lib/../lib64/libgcc_s.so succeeded
 -lgcc_s (/usr/lib/../lib64/libgcc_s.so)
 attempt to open /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtend.o succeeded
 /tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/crtend.o
-attempt to open crtn.o failed/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: cannot find crt1.o: No such file or directory
-/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: cannot find crti.o: No such file or directory
-/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: cannot find -lc
-/tools/lib/gcc/x86_64-unknown-linux-gnu/5.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: cannot find crtn.o: No such file or directory
-collect2: error: ld returned 1 exit status
-
+attempt to open /usr/lib/../lib64/crtn.o succeeded
+/usr/lib/../lib64/crtn.o
+ld-linux-x86-64.so.2 needed by /lib64/libc.so.6
+found ld-linux-x86-64.so.2 at /lib64/ld-linux-x86-64.so.2
 #include <...> search starts here:
  /usr/include
 SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib64")
 SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib")
 SEARCH_DIR("=/tools/x86_64-unknown-linux-gnu/lib");
+attempt to open /lib64/libc.so.6 succeeded
+found ld-linux-x86-64.so.2 at /lib64/ld-linux-x86-64.so.2

@@ -4,8 +4,8 @@ source get_dir.bash
 
 FILE="openssh-6.8p1.tar.gz"
 DIR=${FILE%.tar.gz}
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 trap 'echo '$DIR'; times' EXIT
 pushd /sources
 

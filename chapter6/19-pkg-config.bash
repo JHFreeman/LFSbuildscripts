@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="pkg-config-0.28"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -16,6 +12,8 @@ try_unpack $PKGDIR
 
 cd $PKGDIR
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr        \
             --with-internal-glib \
             --disable-host-tool  \
@@ -32,4 +30,3 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGNAME
-unset CFLAGS CXXFLAGS

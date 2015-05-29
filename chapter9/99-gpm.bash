@@ -6,8 +6,8 @@ pushd /sources
 
 FILE="gpm-1.20.7.tar.bz2"
 DIR=$(get_dir ${FILE})
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 trap 'echo '$DIR'; times' EXIT
 
 tar -xf ${FILE}

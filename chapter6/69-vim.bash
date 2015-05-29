@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="vim74"
 export PKGFILE="vim-7.4"
 
@@ -19,6 +15,8 @@ cd $PKGDIR
 
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr
 
 make
@@ -59,4 +57,3 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR PKGFILE
-unset CFLAGS CXXFLAGS

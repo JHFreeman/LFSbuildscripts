@@ -25,8 +25,8 @@ mkdir $PKGNAME-build
 
 cd $PKGNAME-build
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ../$PKGNAME-$PKGVER/configure \
 	--prefix=/tools \
 	--with-sysroot=$LFS \

@@ -18,8 +18,6 @@ readelf -l a.out | grep ': /lib' > 10-adjusting.log
 
 grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log >> 10-adjusting.log
 
-cat dummy.log >> 10-adjusting.log
-
 grep -B1 '^ /usr/include' dummy.log >> 10-adjusting.log
 
 grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' >> 10-adjusting.log

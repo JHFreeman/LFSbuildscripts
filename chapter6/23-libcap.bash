@@ -2,9 +2,8 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 
 export PKGDIR="libcap-2.24"
 
@@ -30,4 +29,3 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

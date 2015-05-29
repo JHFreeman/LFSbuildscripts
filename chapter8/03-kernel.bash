@@ -6,8 +6,8 @@ source try_unpack.bash
 
 PKGVER="4.0.3"
 PKGDIR="linux-$PKGVER"
-export CFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -mavx -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
 trap 'echo '$PKGDIR'; times' EXIT
 
 pushd /sources

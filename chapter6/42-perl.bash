@@ -2,11 +2,6 @@
 
 source try_unpack.bash
 
-
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="perl-5.20.2"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -22,6 +17,8 @@ echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 sh Configure -des -Dprefix=/usr                 \
                   -Dvendorprefix=/usr           \
                   -Dman1dir=/usr/share/man/man1 \
@@ -37,4 +34,3 @@ cd ..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

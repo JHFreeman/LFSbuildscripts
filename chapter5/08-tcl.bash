@@ -22,8 +22,8 @@ cd $PKGNAME$PKGVER
 
 cd unix
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/tools
 
 make

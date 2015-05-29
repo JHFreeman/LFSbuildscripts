@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 PKGNAME="gcc"
 PKGVER="5.1.0"
 
@@ -18,6 +14,8 @@ try_unpack $PKGNAME-$PKGVER
 mkdir $PKGNAME-build
 cd $PKGNAME-build
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 SED=sed                       \
 ../$PKGNAME-$PKGVER/configure        \
      --prefix=/usr            \
@@ -61,4 +59,3 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
 popd
 
 unset  PKGDIR PKGNAME
-unset CFLAGS CXXFLAGS

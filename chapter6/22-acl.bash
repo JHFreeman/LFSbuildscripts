@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="acl-2.2.52"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -22,8 +18,8 @@ sed -i "s:| sed.*::g" test/{sbits-restore,cp,misc}.test
 
 sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" \
     libacl/__acl_to_any_text.c
-    
-./configure --prefix=/usr --libexecdir=/usr/lib
+
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" ./configure --prefix=/usr --libexecdir=/usr/lib
 
 make
 
@@ -39,4 +35,3 @@ rm -rf $PKGDIR
 popd
 
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

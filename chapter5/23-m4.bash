@@ -2,8 +2,8 @@
 
 export PKGNAME="m4"
 export PKGVER="1.4.17"
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
+export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
+export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong"
 
 trap 'echo '$PKGNAME'-'$PKGVER'; times' EXIT
 
@@ -23,8 +23,8 @@ try_unpack $PKGNAME-$PKGVER
 
 cd $PKGNAME-$PKGVER
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/tools
 
 make

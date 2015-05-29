@@ -2,11 +2,6 @@
 
 source try_unpack.bash
 
-
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="inetutils-1.9.3"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -19,6 +14,8 @@ cd $PKGDIR
 
 echo '#define PATH_PROCNET_DEV "/proc/net/dev"' >> ifconfig/system/linux.h 
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/usr        \
             --localstatedir=/var \
             --disable-logger     \

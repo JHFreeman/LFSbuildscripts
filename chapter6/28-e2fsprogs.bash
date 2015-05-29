@@ -2,10 +2,6 @@
 
 source try_unpack.bash
 
-export MAKEFLAGS='-j 3'
-export CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-export CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx"
-
 export PKGDIR="e2fsprogs-1.42.12"
 
 trap 'echo '$PKGDIR'; times' EXIT
@@ -23,8 +19,9 @@ sed -e '/int.*old_desc_blocks/s/int/blk64_t/' \
 mkdir -v build
 cd build
 
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -I/tools/include" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 LIBS=-L/tools/lib                    \
-CFLAGS=-I/tools/include              \
 PKG_CONFIG_PATH=/tools/lib/pkgconfig \
 ../configure --prefix=/usr           \
              --bindir=/bin           \
@@ -50,4 +47,3 @@ cd ../..
 rm -rf $PKGDIR
 popd
 unset  PKGDIR
-unset CFLAGS CXXFLAGS

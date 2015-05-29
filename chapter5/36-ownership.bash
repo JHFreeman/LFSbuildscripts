@@ -2,4 +2,4 @@
 
 LFS=/mnt/lfs
 
-chown -R root:root $LFS/tools
+chown -R root $LFS/tools

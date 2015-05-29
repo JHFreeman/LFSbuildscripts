@@ -23,8 +23,8 @@ cd $PKGNAME-$PKGVER
 
 patch -Np1 -i ../$PKGNAME-$PKGVER-gcc5_buildfixes-1.patch
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ./configure --prefix=/tools \
             --with-shared   \
             --without-debug \

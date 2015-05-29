@@ -46,8 +46,8 @@ done
 mkdir -v ../$PKGNAME-build
 cd ../$PKGNAME-build
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 ../gcc-5.1.0/configure                             \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \

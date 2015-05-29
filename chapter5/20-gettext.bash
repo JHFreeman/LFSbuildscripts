@@ -23,8 +23,8 @@ cd $PKGNAME-$PKGVER
 
 cd gettext-tools
 
-CFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
-CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong -mavx" \
+CFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
+CXXFLAGS="-march=native -pipe -O2 -fstack-protector-strong" \
 EMACS="no" ./configure --prefix=/tools --disable-shared
 
 make -C gnulib-lib
